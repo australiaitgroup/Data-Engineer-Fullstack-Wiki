@@ -16,6 +16,14 @@
 ### 3.SQL案例3讲解
 
 ### 4.SQL基础介绍
++ Summary, ***做到第七层面试第一轮基本OK***
+   1. SELECT & WHERE
+   2. GROUP BY & Having
+   3. Nested Query
+   4. Rank/Row Number
+   5. Partition By
+   6. Range Selection
+   7. Further Analytic function
 + 表(Table)与视图(View)的比较
    - Table 物理存在, View 逻辑存在
 + SQL tuning
@@ -57,8 +65,30 @@
 + NTILE 案例讲解
    - NTILE(N) OVER (PARTITION BY XXX ORDER BY XXX) AS XXX
    - Divide data into N groups
-+ 递归CTE: 语法，案例讲解
++ Recursive CTE: 语法，案例讲解
+   - 消耗资源，效率低
+   - Syntax: <br />
+     WITH RECURSIVE cte_name AS (<br />
+     &emsp;initial_query -- anchor member<br />
+     &emsp;UNION ALL<br />
+     &emsp;recursive_query -- recursive member that<br />
+     &emsp;references to the CTE name<br />
+     )<br />
+     SELECT * FROM cte_name;
+   - Example: <br />
+     WITH RECURSIVE employee_rec AS (<br />
+     &emsp;SELECT emp_name,<br />
+     &emsp;emp_manager,<br />
+     &emsp;1 as Band<br />
+     &emsp;FROM emp_test<br />
+     &emsp;WHERE emp_manager IS NULL<br />
+     &emsp;UNION ALL<br />
+     &emsp;SELECT e.emp_name,<br />
+     &emsp;e.emp_manager,<br />
+     &emsp;Band+1<br />
+     &emsp;FROM emp_test e<br />
+     &emsp;INNER JOIN employee_rec ep<br />
+     &emsp;ON ep.emp_name = e.emp_manager )<br />
+     select * From employee_rec
+   
 
-
-### 作业
-+ 
