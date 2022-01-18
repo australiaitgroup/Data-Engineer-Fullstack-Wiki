@@ -43,9 +43,11 @@
 - Multiple hierarchies
 - Flags and indicators
 - Null attributes in dimension
+  - use unk / N/A instead of Null
 - Calendar table
 - Role playing dimensions
-- Junk dimension VS cross join等
+- Junk dimension
+  - like a combination of miscellaneous
 - Snowflaked dimension
 - Outrigger dimensions
 
@@ -53,10 +55,14 @@
 - Fact table结构
 - Additive, semi-additive, non-additive
 - Nulls in fact tables
+  - use unk / N/A instead of Null
 - Conformed table
 - Transaction fact tables
+  - Base & Raw, 流水账
 - Periodic snapshot fact tables
+  - e.g. FACT_MONTHLY_SALES
 - Accumulating snapshot fact table
+  - between a sepcific period of time
 - Factless fact tables
 - Aggregated fact tables
 - Consolidated fact tables
@@ -64,5 +70,11 @@
 ### 5. Integration via conformed dimensions
 
 ### 6. SCD: slowly changing dimension
+- Type 1: sometimes (for small companies)
+  - 不保留历史信息
+- Type 2: frequently (recommended)
+  - add surrogate keys (表示唯一性), effective date and expiry date
+- Tpye 3: rarely (consume extra resources)
+  - add surrogate keys (表示唯一性), effective date and previous value
 
 ### 7. 学习使用Linux命令
