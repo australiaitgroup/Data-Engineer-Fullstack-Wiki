@@ -1,0 +1,5 @@
+# Lecture 10  AWS Messaging
+## Homework
+Have a look at boto3 package: https://boto3.amazonaws.com/v1/documentation/api/latest/index.html
+
+Self-learning and implement: How to send, receive and delete message from sqs: https://boto3.amazonaws.com/v1/documentation/api/latest/guide/sqs-example-sending-receiving-msgs.html
